@@ -4,10 +4,6 @@ A production-grade payment orchestration service built with **NestJS**, **Postgr
 
 ## 🚀 Deployment
 
-### Railway (Recommended for Africa)
-
-Deploy to **Railway** with one click—no Stripe dependency, works in Zambia and across Africa.
-
 👉 **[Railway Deployment Guide](./DEPLOY_RAILWAY.md)**
 
 ### Docker Compose (Local Development)

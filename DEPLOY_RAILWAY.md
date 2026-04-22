@@ -1,10 +1,8 @@
 # Deploying to Railway
 
-This guide covers deploying the Payment Engine to **Railway**, a modern cloud platform that works great for Africa-based services.
+This guide covers deploying the Payment Engine to **Railway**
 
-## Why Railway for Zambia?
-
-- ✅ No Stripe requirement (use Lenco or other providers)
+- ✅ Use Lenco or other providers
 - ✅ Global infrastructure with Africa-optimized routing
 - ✅ Simple PostgreSQL + Redis provisioning
 - ✅ Pay-as-you-go pricing
