@@ -122,8 +122,17 @@ export function validateDatabaseEnvironment(env: RuntimeEnv): RuntimeEnv {
   const nodeEnv = resolveNodeEnv(env);
 
   parseInteger('PORT', env.PORT, 3000);
-  parseInteger('DB_PORT', env.DB_PORT, 5432);
-  parseInteger('REDIS_PORT', env.REDIS_PORT, 6379);
+
+  // If DATABASE_URL / REDIS_URL are present (Railway default),
+  // skip validating split host/port vars that may contain placeholders.
+  if (!env.DATABASE_URL) {
+    parseInteger('DB_PORT', env.DB_PORT, 5432);
+  }
+
+  if (!env.REDIS_URL) {
+    parseInteger('REDIS_PORT', env.REDIS_PORT, 6379);
+  }
+
   parseBoolean('DB_SSL', env.DB_SSL, nodeEnv === 'production');
   parseBoolean('DB_SSL_REJECT_UNAUTHORIZED', env.DB_SSL_REJECT_UNAUTHORIZED, true);
 
