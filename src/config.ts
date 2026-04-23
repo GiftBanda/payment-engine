@@ -190,10 +190,13 @@ export default () => {
     const parsed = parseDatabaseUrl(process.env.DATABASE_URL);
     dbConfig = {
       ...parsed,
+      // Railway (and most managed PG hosts) use self-signed internal certs.
+      // Default to false when using DATABASE_URL; override with DB_SSL_REJECT_UNAUTHORIZED=true
+      // only if your host provides a publicly-trusted certificate.
       sslRejectUnauthorized: parseBoolean(
         'DB_SSL_REJECT_UNAUTHORIZED',
         process.env.DB_SSL_REJECT_UNAUTHORIZED,
-        true,
+        false,
       ),
     };
   }
